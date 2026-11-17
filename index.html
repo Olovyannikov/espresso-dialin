@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#16110E">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="description" content="Карточка дайал-ина эспрессо: Pesado HE S, тёмная обжарка, Gemilai 3007Z.">
+<title>Дайал-ин · Pesado HE S</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,300..800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#16110E;
+  --panel:#211915;
+  --panel-2:#2B211B;
+  --line:#3A2E27;
+  --cream:#EFE6DC;
+  --muted:#9D8B7D;
+  --crema:#E0A449;
+  --steel:#7FA5B0;
+  --alert:#D8604B;
+  --rhythm:clamp(1.5rem,5vw,2.25rem);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--cream);
+  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:16px;
+  line-height:1.55;
+  font-variant-numeric:tabular-nums;
+  padding:0 0 env(safe-area-inset-bottom);
+}
+.wrap{max-width:34rem;margin:0 auto;padding:1.25rem 1.1rem 4rem}
+
+/* ---------- header ---------- */
+.masthead{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;
+  padding-bottom:.9rem;border-bottom:1px solid var(--line)}
+.masthead h1{margin:0;font-size:1.35rem;font-weight:700;font-stretch:112%;letter-spacing:-.01em}
+.masthead p{margin:0;font-size:.8rem;color:var(--muted);text-align:right;line-height:1.35}
+
+/* ---------- hero: the shot as a timeline ---------- */
+.shot{margin:var(--rhythm) 0 0}
+.shot-bar{display:flex;gap:3px;height:3.4rem;border-radius:3px;overflow:hidden}
+.phase{position:relative;display:flex;flex-direction:column;justify-content:center;
+  padding:0 .55rem;min-width:0;transform-origin:left center}
+.phase b{font-size:1.1rem;font-weight:700;line-height:1.1;font-stretch:108%}
+.phase span{font-size:.7rem;line-height:1.2;opacity:.75;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.phase-wet{background:color-mix(in srgb,var(--steel) 34%,var(--ink));color:var(--steel)}
+.phase-pause{background:var(--panel-2);color:var(--muted)}
+.phase-press{background:color-mix(in srgb,var(--crema) 30%,var(--ink));color:var(--crema)}
+.shot-note{margin:.6rem 0 0;font-size:.8rem;color:var(--muted)}
+
+/* ---------- readouts ---------- */
+.readouts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  margin-top:1px;background:var(--line);border-radius:3px;overflow:hidden}
+.readout{background:var(--panel);padding:.75rem .7rem .7rem}
+.readout b{display:block;font-size:1.6rem;font-weight:700;font-stretch:110%;
+  line-height:1.05;letter-spacing:-.02em}
+.readout b small{font-size:.8rem;font-weight:500;color:var(--muted);letter-spacing:0}
+.readout span{display:block;margin-top:.15rem;font-size:.72rem;color:var(--muted)}
+.readout-hero b{color:var(--crema)}
+
+.fixed{margin:1rem 0 0;padding:0;list-style:none;font-size:.9rem}
+.fixed li{display:flex;justify-content:space-between;gap:1rem;
+  padding:.45rem 0;border-bottom:1px solid var(--line)}
+.fixed li:first-child{border-top:1px solid var(--line)}
+.fixed dfn{font-style:normal;color:var(--muted)}
+.fixed b{font-weight:600;text-align:right}
+
+/* ---------- sections ---------- */
+section{margin-top:var(--rhythm)}
+h2{margin:0 0 .25rem;font-size:1.05rem;font-weight:700;font-stretch:112%;letter-spacing:-.005em}
+.lede{margin:0 0 .9rem;font-size:.86rem;color:var(--muted);max-width:32ch}
+
+/* ---------- ordered fix ladder ---------- */
+.ladder{margin:0;padding:0;list-style:none;counter-reset:step}
+.ladder li{counter-increment:step;position:relative;padding:.6rem 0 .6rem 2.1rem;
+  border-top:1px solid var(--line);font-size:.93rem}
+.ladder li:last-child{border-bottom:1px solid var(--line)}
+.ladder li::before{content:counter(step);position:absolute;left:0;top:.62rem;
+  width:1.35rem;height:1.35rem;border-radius:50%;border:1px solid var(--steel);
+  color:var(--steel);font-size:.72rem;font-weight:700;
+  display:grid;place-items:center}
+.ladder em{font-style:normal;color:var(--muted)}
+
+/* ---------- symptom table ---------- */
+.levers{margin:0;padding:0}
+.levers div{display:grid;grid-template-columns:1fr;gap:.1rem;
+  padding:.65rem 0 .65rem .8rem;border-top:1px solid var(--line);
+  border-left:2px solid var(--crema)}
+.levers div:last-child{border-bottom:1px solid var(--line)}
+.levers dt{font-size:.93rem;font-weight:600}
+.levers dd{margin:0;font-size:.88rem;color:var(--muted)}
+@media(min-width:30rem){
+  .levers div{grid-template-columns:11rem 1fr;gap:.9rem;align-items:baseline}
+  .levers dd{color:var(--cream)}
+}
+
+.caution{margin-top:var(--rhythm);padding:.85rem .95rem;background:var(--panel);
+  border-left:2px solid var(--alert);border-radius:0 3px 3px 0;font-size:.88rem}
+.caution h2{font-size:.95rem;margin-bottom:.3rem}
+.caution p{margin:0;color:var(--muted)}
+
+/* ---------- log ---------- */
+.log-head{display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
+button{font:inherit;cursor:pointer;border-radius:3px;transition:background .15s,border-color .15s}
+.btn-primary{width:100%;margin-top:.4rem;padding:.8rem;background:var(--crema);
+  border:none;color:#241705;font-weight:700;font-size:.95rem}
+.btn-primary:hover{background:#EBB45C}
+.btn-ghost{padding:.35rem .6rem;background:none;border:1px solid var(--line);
+  color:var(--muted);font-size:.78rem}
+.btn-ghost:hover{border-color:var(--muted);color:var(--cream)}
+:focus-visible{outline:2px solid var(--steel);outline-offset:2px}
+
+form{margin-top:.9rem;padding:.9rem;background:var(--panel);border-radius:4px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem}
+label{display:block;font-size:.74rem;color:var(--muted);margin-bottom:.22rem}
+input,textarea{width:100%;padding:.5rem .55rem;background:var(--ink);color:var(--cream);
+  border:1px solid var(--line);border-radius:3px;font:inherit;font-size:.95rem}
+input:focus,textarea:focus{border-color:var(--steel);outline:none}
+textarea{resize:vertical;min-height:3.2rem}
+.span2{grid-column:1/-1}
+.channels{display:flex;gap:.5rem;margin-top:.2rem}
+.channels button{flex:1;padding:.5rem;background:var(--ink);border:1px solid var(--line);
+  color:var(--muted);font-size:.88rem}
+.channels button[aria-pressed="true"]{border-color:var(--alert);color:var(--alert);
+  background:color-mix(in srgb,var(--alert) 12%,var(--ink))}
+.channels button[aria-pressed="true"].ok{border-color:var(--steel);color:var(--steel);
+  background:color-mix(in srgb,var(--steel) 12%,var(--ink))}
+.form-actions{display:flex;gap:.6rem;margin-top:.8rem}
+.form-actions .btn-primary{margin:0;flex:2}
+.form-actions .btn-ghost{flex:1;font-size:.9rem}
+
+.entries{margin:.9rem 0 0;padding:0;list-style:none}
+.entry{padding:.7rem 0;border-top:1px solid var(--line)}
+.entry-top{display:flex;justify-content:space-between;align-items:baseline;gap:.8rem}
+.entry-nums{font-size:.95rem;font-weight:600;font-stretch:106%}
+.entry-nums i{font-style:normal;color:var(--muted);font-weight:400}
+.entry-date{font-size:.72rem;color:var(--muted);white-space:nowrap}
+.entry-meta{margin:.2rem 0 0;font-size:.84rem;color:var(--muted)}
+.flag{display:inline-block;padding:.05rem .4rem;border-radius:2px;font-size:.72rem;
+  font-weight:600;vertical-align:1px}
+.flag-bad{background:color-mix(in srgb,var(--alert) 20%,var(--ink));color:var(--alert)}
+.flag-good{background:color-mix(in srgb,var(--steel) 18%,var(--ink));color:var(--steel)}
+.entry-del{float:right;background:none;border:none;color:var(--line);font-size:.95rem;
+  padding:0 .2rem;line-height:1}
+.entry-del:hover{color:var(--alert)}
+.empty{margin:.9rem 0 0;padding:1.1rem .95rem;border:1px dashed var(--line);
+  border-radius:4px;font-size:.88rem;color:var(--muted)}
+
+footer{margin-top:var(--rhythm);padding-top:.9rem;border-top:1px solid var(--line);
+  font-size:.75rem;color:var(--muted)}
+
+@media(prefers-reduced-motion:no-preference){
+  .phase{animation:grow .5s cubic-bezier(.2,.7,.3,1) backwards}
+  .phase:nth-child(1){animation-delay:.05s}
+  .phase:nth-child(2){animation-delay:.25s}
+  .phase:nth-child(3){animation-delay:.45s}
+  @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <h1>Дайал-ин</h1>
+  <p>Pesado HE S · тёмная<br>Gemilai 3007Z</p>
+</header>
+
+<div class="shot">
+  <div class="shot-bar" role="img" aria-label="Профиль шота: предсмачивание 6 секунд, пауза 8 секунд, полное давление около 20 секунд.">
+    <div class="phase phase-wet" style="flex:6"><b>6с</b><span>смачивание</span></div>
+    <div class="phase phase-pause" style="flex:8"><b>8с</b><span>пауза</span></div>
+    <div class="phase phase-press" style="flex:20"><b>~20с</b><span>полное давление</span></div>
+  </div>
+  <p class="shot-note">Общий таймер ~34 с. Это с блумом — не сравнивай с прежними 25–35.</p>
+
+  <div class="readouts">
+    <div class="readout"><b>17<small> г</small></b><span>доза</span></div>
+    <div class="readout readout-hero"><b>34<small> г</small></b><span>выход, 1:2</span></div>
+    <div class="readout"><b>89<small> °C</small></b><span>температура</span></div>
+  </div>
+
+  <ul class="fixed">
+    <li><dfn>Помол</dfn><b>на 2–3 щелчка крупнее обычного</b></li>
+    <li><dfn>Puck screen</dfn><b>да</b></li>
+    <li><dfn>Подготовка</dfn><b>blind shaker, орбитой</b></li>
+  </ul>
+</div>
+
+<section>
+  <h2>Сначала убери каналы</h2>
+  <p class="lede">Вкус не трогай, пока поток не станет ровным. Смотри голым портафильтром: один-два жгута должны сойтись за 5–7 секунд и не брызгать вбок.</p>
+  <ol class="ladder">
+    <li>Пауза до <b>10–12 с</b>. <em>Первый рычаг, почти бесплатный.</em></li>
+    <li>Помол <b>ещё крупнее</b>. <em>Крупнее, не мельче — на тёмной мелкий помол комкуется.</em></li>
+    <li>Поток ровный — <b>только теперь мельче</b>, маленькими шагами.</li>
+  </ol>
+</section>
+
+<section>
+  <h2>Потом крути вкус</h2>
+  <p class="lede">По одному параметру за раз, иначе не поймёшь, что сработало.</p>
+  <dl class="levers">
+    <div><dt>Жидко, пусто, кисло</dt><dd>Режь выход: 1:1,7 → 1:1,5 (29 → 26 г)</dd></div>
+    <div><dt>Горечь, зола, сухо</dt><dd>Температура 87–88 °C, смачивание до 4 с</dd></div>
+    <div><dt>Плоско, но не горько</dt><dd>Температура до 91 °C</dd></div>
+    <div><dt>Вяжет в послевкусии</dt><dd>Пауза короче на 2–3 с</dd></div>
+  </dl>
+</section>
+
+<div class="caution">
+  <h2>Паузу дольше 12 с не гоняй</h2>
+  <p>Тёмная обжарка и так растворимая. В стоячей воде она отдаёт уже не сладость, а золу, плюс за время паузы падает температура. Если шот стал вялым — причина чаще здесь, а не в помоле.</p>
+</div>
+
+<section>
+  <div class="log-head">
+    <h2>Журнал</h2>
+    <button class="btn-ghost" id="copy">Скопировать всё</button>
+  </div>
+  <p class="lede">Новая запись подставляет значения прошлой — меняй только то, что покрутил.</p>
+
+  <button class="btn-primary" id="open">Записать итерацию</button>
+
+  <form id="form" hidden>
+    <div class="grid">
+      <div><label for="f-dose">Доза, г</label><input id="f-dose" type="text" inputmode="decimal"></div>
+      <div><label for="f-yield">Выход, г</label><input id="f-yield" type="text" inputmode="decimal"></div>
+      <div><label for="f-grind">Помол</label><input id="f-grind" type="text" placeholder="напр. 2.4"></div>
+      <div><label for="f-time">Время, с</label><input id="f-time" type="text" inputmode="numeric"></div>
+      <div><label for="f-wet">Смачивание, с</label><input id="f-wet" type="text" inputmode="numeric"></div>
+      <div><label for="f-pause">Пауза, с</label><input id="f-pause" type="text" inputmode="numeric"></div>
+      <div class="span2">
+        <label id="lbl-ch">Каналы</label>
+        <div class="channels" role="group" aria-labelledby="lbl-ch">
+          <button type="button" class="ok" id="ch-no" aria-pressed="true">Поток ровный</button>
+          <button type="button" id="ch-yes" aria-pressed="false">Каналило</button>
+        </div>
+      </div>
+      <div class="span2"><label for="f-taste">Вкус</label><textarea id="f-taste" placeholder="Что в чашке и что менять дальше"></textarea></div>
+    </div>
+    <div class="form-actions">
+      <button type="submit" class="btn-primary">Сохранить</button>
+      <button type="button" class="btn-ghost" id="cancel">Отмена</button>
+    </div>
+  </form>
+
+  <ul class="entries" id="entries"></ul>
+  <p class="empty" id="empty">Пока пусто. Первая запись закрепит стартовый рецепт — дальше будет видно, какой рычаг что сделал.</p>
+</section>
+
+<footer>Журнал хранится только в браузере этого устройства. Чистка данных сайта его стирает — выгружай кнопкой «Скопировать всё».</footer>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var KEY = "pesado-he-s-log";
+  var SEED = {dose:"17", yield:"34", grind:"", time:"", wet:"6", pause:"8", channels:false, taste:""};
+  var F = {dose:"f-dose", yield:"f-yield", grind:"f-grind", time:"f-time", wet:"f-wet", pause:"f-pause", taste:"f-taste"};
+  var form = document.getElementById("form");
+  var list = document.getElementById("entries");
+  var empty = document.getElementById("empty");
+  var chNo = document.getElementById("ch-no");
+  var chYes = document.getElementById("ch-yes");
+  var channels = false;
+  var data = [];
+
+  function load(){
+    try { data = JSON.parse(localStorage.getItem(KEY)) || []; }
+    catch(e){ data = []; }
+    if(!Array.isArray(data)) data = [];
+  }
+  function save(){
+    try { localStorage.setItem(KEY, JSON.stringify(data)); }
+    catch(e){ /* приватный режим или переполнение — записи живут до перезагрузки */ }
+  }
+  function setChannels(v){
+    channels = v;
+    chNo.setAttribute("aria-pressed", String(!v));
+    chYes.setAttribute("aria-pressed", String(v));
+  }
+  function fmtDate(iso){
+    var d = new Date(iso);
+    if(isNaN(d)) return "";
+    return d.toLocaleDateString("ru-RU",{day:"numeric",month:"short"}) + ", " +
+           d.toLocaleTimeString("ru-RU",{hour:"2-digit",minute:"2-digit"});
+  }
+  function esc(s){
+    return String(s).replace(/[&<>"]/g, function(c){
+      return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];
+    });
+  }
+
+  function render(){
+    list.textContent = "";
+    empty.hidden = data.length > 0;
+    data.forEach(function(e, i){
+      var li = document.createElement("li");
+      li.className = "entry";
+
+      var ratio = (parseFloat(e.dose) > 0 && parseFloat(e.yield) > 0)
+        ? "1:" + (parseFloat(e.yield)/parseFloat(e.dose)).toFixed(2).replace(/0$/,"").replace(".",",")
+        : "";
+      var nums = [
+        e.dose ? esc(e.dose)+" г" : null,
+        e.yield ? "→ "+esc(e.yield)+" г" : null,
+        e.time ? esc(e.time)+" с" : null
+      ].filter(Boolean).join(" ");
+      var meta = [
+        e.grind ? "помол "+esc(e.grind) : null,
+        (e.wet||e.pause) ? "ПИ "+esc(e.wet||"?")+"/"+esc(e.pause||"?")+" с" : null,
+        ratio || null
+      ].filter(Boolean).join(" · ");
+
+      li.innerHTML =
+        '<button class="entry-del" type="button" aria-label="Удалить запись">&times;</button>' +
+        '<div class="entry-top"><span class="entry-nums">' + nums +
+        ' <span class="flag ' + (e.channels ? "flag-bad" : "flag-good") + '">' +
+        (e.channels ? "каналы" : "ровно") + '</span></span>' +
+        '<span class="entry-date">' + fmtDate(e.at) + '</span></div>' +
+        (meta ? '<p class="entry-meta">' + meta + '</p>' : "") +
+        (e.taste ? '<p class="entry-meta" style="color:var(--cream)">' + esc(e.taste) + '</p>' : "");
+
+      li.querySelector(".entry-del").addEventListener("click", function(){
+        data.splice(i,1); save(); render();
+      });
+      list.appendChild(li);
+    });
+  }
+
+  function prefill(){
+    var last = data[0] || SEED;
+    Object.keys(F).forEach(function(k){
+      document.getElementById(F[k]).value = (k === "taste") ? "" : (last[k] || "");
+    });
+    setChannels(false);
+  }
+
+  document.getElementById("open").addEventListener("click", function(){
+    prefill();
+    form.hidden = false;
+    this.hidden = true;
+    document.getElementById("f-grind").focus();
+  });
+  document.getElementById("cancel").addEventListener("click", function(){
+    form.hidden = true;
+    document.getElementById("open").hidden = false;
+  });
+  chNo.addEventListener("click", function(){ setChannels(false); });
+  chYes.addEventListener("click", function(){ setChannels(true); });
+
+  form.addEventListener("submit", function(ev){
+    ev.preventDefault();
+    var entry = {at:new Date().toISOString(), channels:channels};
+    Object.keys(F).forEach(function(k){
+      entry[k] = document.getElementById(F[k]).value.trim();
+    });
+    data.unshift(entry);
+    save(); render();
+    form.hidden = true;
+    document.getElementById("open").hidden = false;
+  });
+
+  document.getElementById("copy").addEventListener("click", function(){
+    var btn = this;
+    var text = data.map(function(e){
+      return [fmtDate(e.at), e.dose+" г → "+e.yield+" г", e.time+" с",
+              "помол "+e.grind, "ПИ "+e.wet+"/"+e.pause+" с",
+              e.channels ? "каналы" : "ровно", e.taste].filter(Boolean).join(" | ");
+    }).join("\n") || "Журнал пуст";
+    function done(ok){
+      btn.textContent = ok ? "Скопировано" : "Не вышло";
+      setTimeout(function(){ btn.textContent = "Скопировать всё"; }, 1600);
+    }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){done(true);}, function(){done(false);});
+    } else { done(false); }
+  });
+
+  load();
+  render();
+})();
+</script>
+</body>
+</html>
